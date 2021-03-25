@@ -11,3 +11,22 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+#main{
+    width: 600px;
+    margin-left: 200px;
+    margin-top: 50px;
+    background-image: url("https://img.freepik.com/foto-gratis/fondo-papel-blanco-arte_35956-2379.jpg?size=626&ext=jpg");
+    background-repeat: repeat-y;
+    padding-left: 20px;
+    text-align: center;
+    
+   
+}
+
+#espacio{
+    width: 20px;
+    height: 20px;
+}
+body{
+    background-color: black;
+}
