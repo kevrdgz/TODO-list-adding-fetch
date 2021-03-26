@@ -6,7 +6,7 @@ import { Button } from "bootstrap";
 export function Home() {
 	const [list, setlist] = useState([]);
 	useEffect(() => {
-		fetch("https://assets.breatheco.de/apis/fake/todos/user/kevrdgz")
+		fetch("https://assets.breatheco.de/apis/fake/todos/user/kevrdgz2")
 			.then(response => response.json())
 			.then(result => setlist(result))
 			.catch(error => console.log("error", error));
@@ -23,23 +23,12 @@ export function Home() {
 	}
 
 	const methodPut = lista => {
-		var myHeaders = new Headers();
-		myHeaders.append("Content-Type", "application/json");
-
-		var raw = JSON.stringify(lista);
-
-		var requestOptions = {
+		fetch("https://assets.breatheco.de/apis/fake/todos/user/kevrdgz2", {
+			headers: { "Content-Type": "application/json" },
 			method: "PUT",
-			headers: myHeaders,
-			body: raw,
-			redirect: "follow"
-		};
-
-		fetch(
-			"https://assets.breatheco.de/apis/fake/todos/user/kevrdgz",
-			requestOptions
-		)
-			.then(response => response.text())
+			body: JSON.stringify(lista)
+		})
+			.then(response => response.json())
 			.then(result => console.log(result))
 			.catch(error => console.log("error", error));
 	};
@@ -47,7 +36,7 @@ export function Home() {
 	async function deleteALL() {
 		//delete
 		await fetch(
-			"https://assets.breatheco.de/apis/fake/todos/user/kevrdgz",
+			"https://assets.breatheco.de/apis/fake/todos/user/kevrdgz2",
 			{
 				method: "DELETE",
 				headers: {
@@ -55,7 +44,7 @@ export function Home() {
 				}
 			}
 		)
-			.then(response => response.text())
+			.then(response => response.json())
 			.then(result => console.log(result))
 			.catch(error => console.log("error", error));
 
@@ -69,12 +58,11 @@ export function Home() {
 		var requestOptions = {
 			method: "POST",
 			headers: myHeaders,
-			body: raw,
-			redirect: "follow"
+			body: raw
 		};
 
 		await fetch(
-			"https://assets.breatheco.de/apis/fake/todos/user/kevrdgz",
+			"https://assets.breatheco.de/apis/fake/todos/user/kevrdgz2",
 			requestOptions
 		)
 			.then(response => response.text())
@@ -82,7 +70,7 @@ export function Home() {
 			.catch(error => console.log("error", error));
 
 		//GET
-		fetch("https://assets.breatheco.de/apis/fake/todos/user/kevrdgz")
+		fetch("https://assets.breatheco.de/apis/fake/todos/user/kevrdgz2")
 			.then(response => response.json())
 			.then(result => setlist(result))
 			.catch(error => console.log("error", error));
